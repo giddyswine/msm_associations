@@ -12,8 +12,7 @@ class Director < ApplicationRecord
 #  updated_at :datetime         not null
 #
 
-validates :name, :dob, :url, presence: true
-validates :bio, integer: false, presence: true
+validates :name, presence: true
 #  name       :string
 #  dob        :string
 #  bio        :text
