@@ -1,8 +1,11 @@
+class Director < ApplicationRecord
 # == Schema Information
 #
 # Table name: directors
 #
 #  id         :integer          not null, primary key
+validates :name, :dob, :url, presence: true
+validates :bio, integer: false, presence: true
 #  name       :string
 #  dob        :string
 #  bio        :text
@@ -11,5 +14,4 @@
 #  updated_at :datetime         not null
 #
 
-class Director < ApplicationRecord
 end
