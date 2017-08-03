@@ -24,7 +24,7 @@
           Name
         </label>
 
-        <%= select_tag("actor_id", options_from_collection_for_select(Actor.all, :id, :name, :actor_id), :class => "form-control") %>
+        <input type="text" id="name" name="name" placeholder="Actor" class="form-control" value="<%=@actor.name%>">
       </div>
 
       <!-- Label and input for dob -->
