@@ -23,6 +23,16 @@
       <dt>Director</dt>
       <dd><a href="/directors/<%=@movie.director_id%>"><%=Director.find_by(id: @movie.director_id).name%></a></dd>
 
+      <dt>Characters</dt>
+        <dd><%=Character.where(movie_id: @movie.id).count%></dd>
+        <dd>
+          <table class="table">  
+          <% Character.where(:movie_id=> @movie.id).each do |charactor| %>
+          <li><a href="/actors/<%=charactor.actor_id%>"><%=charactor.name%></a></li>
+          <%end%>
+        </dd>
+        </dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">

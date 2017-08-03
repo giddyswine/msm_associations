@@ -16,9 +16,15 @@
 
       <dt>Image</dt>
       <dd><img src="<%= @actor.image_url %>"></dd>
-      <dt>Filmography</dt>
+      <dt>Roles</dt>
         <dd><table class="table">  
-          asdf
+        <dd><%=Character.where(actor_id: @actor.id).count%></dd>
+        <dd>
+          <table class="table">  
+          <% Character.where(:actor_id=> @actor.id).each do |charactor| %>
+          <li><a href="/movies/<%=charactor.movie_id%>"><%=charactor.name%></a></li>
+          <%end%>
+        </dd>
         </dd>
     </dl>
 
