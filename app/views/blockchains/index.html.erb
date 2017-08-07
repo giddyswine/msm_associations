@@ -34,7 +34,7 @@
         <td><%= blockchain.city %></td>
         <td><a href="/customers/<%=blockchain.customer_id%>"><%= Customer.find(blockchain.customer_id).short_name %></a></td>
         <td><a href="/companies/<%=blockchain.company_id%>"><%= Company.find(blockchain.company_id).name %></a></td>
-        <td><%= blockchain.source_id %></td>
+        <td><%= blockchain.source_id%></td>
         <td><%= blockchain.price %></td>
         <td><%= blockchain.metric %></td>
         <td><%= blockchain.tons %></td>

@@ -1,5 +1,22 @@
 Rails.application.routes.draw do
 
+  # Routes for the Locationdetail resource:
+  # CREATE
+  get "/locationdetails/new", :controller => "locationdetails", :action => "new"
+  post "/create_locationdetail", :controller => "locationdetails", :action => "create"
+
+  # READ
+  get "/locationdetails", :controller => "locationdetails", :action => "index"
+  get "/locationdetails/:id", :controller => "locationdetails", :action => "show"
+
+  # UPDATE
+  get "/locationdetails/:id/edit", :controller => "locationdetails", :action => "edit"
+  post "/update_locationdetail/:id", :controller => "locationdetails", :action => "update"
+
+  # DELETE
+  get "/delete_locationdetail/:id", :controller => "locationdetails", :action => "destroy"
+  #------------------------------
+
   # Routes for the Location resource:
   # CREATE
   get "/locations/new", :controller => "locations", :action => "new"

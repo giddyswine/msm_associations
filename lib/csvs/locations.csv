@@ -1,4 +1,4 @@
-company_id,city,state
+company_id,location_id,state
 34,Donaldsonville,LA
 34,Verdigris,OK
 34,Port Neal,IA
@@ -36,7 +36,7 @@ company_id,city,state
 34,Grand Forks,MN
 34,Muskegon,MI
 34,NOLA Range Transfer,LA
-34,Henderson,
+34,Henderson,IN
 34,Aurora,NE
 34,Seneca,IL
 34,Winona,MN
@@ -47,20 +47,20 @@ company_id,city,state
 34,Wilmington NC Chemserve,NC
 34,Helm,CA
 34,Ritzville,WA
-34,Webberville,
+34,Webberville,MI
 34,Bigelow,MO
 34,Culbertson,KS
 34,Wilmington,NC
 34,Wisconsin Rapids,WI
 34,Schoolcraft,WI
 34,Vicksburg Kinder Morgan,MS
-34,Walton,
+34,Walton,MI
 34,Kaukauna,WI
 34,Rycroft,AB
 34,Marseilles,IL
-34,Logansport Leased,
-34,Sterling,
-34,Arena,
+34,Logansport Leased,LA
+34,Sterling,LA
+34,Arena,NE
 34,Conway,SK
 34,Chesapeake VA CPS,VA
 34,Burlington,WI
