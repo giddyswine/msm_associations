@@ -1,5 +1,22 @@
 Rails.application.routes.draw do
 
+  # Routes for the Mode resource:
+  # CREATE
+  get "/modes/new", :controller => "modes", :action => "new"
+  post "/create_mode", :controller => "modes", :action => "create"
+
+  # READ
+  get "/modes", :controller => "modes", :action => "index"
+  get "/modes/:id", :controller => "modes", :action => "show"
+
+  # UPDATE
+  get "/modes/:id/edit", :controller => "modes", :action => "edit"
+  post "/update_mode/:id", :controller => "modes", :action => "update"
+
+  # DELETE
+  get "/delete_mode/:id", :controller => "modes", :action => "destroy"
+  #------------------------------
+
   # Routes for the Customer resource:
   # CREATE
   get "/customers/new", :controller => "customers", :action => "new"
