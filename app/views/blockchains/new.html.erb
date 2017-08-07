@@ -1,0 +1,154 @@
+<!-- Validation failure messages -->
+<% if @blockchain.errors.any? %>
+  <% @blockchain.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Blockchain</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_blockchain" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for salesperson_id -->
+      <div class="form-group">
+        <label for="salesperson_id" class="control-label">
+          Salesperson
+        </label>
+
+        <input type="text" id="salesperson_id" name="salesperson_id" placeholder="Salesperson" class="form-control" value="<%= @blockchain.salesperson_id %>">
+      </div>
+
+      <!-- Label and input for product_id -->
+      <div class="form-group">
+        <label for="product_id" class="control-label">
+          Product
+        </label>
+
+        <input type="text" id="product_id" name="product_id" placeholder="Product" class="form-control" value="<%= @blockchain.product_id %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @blockchain.state %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @blockchain.city %>">
+      </div>
+
+      <!-- Label and input for customer_id -->
+      <div class="form-group">
+        <label for="customer_id" class="control-label">
+          Customer
+        </label>
+
+        <input type="text" id="customer_id" name="customer_id" placeholder="Customer" class="form-control" value="<%= @blockchain.customer_id %>">
+      </div>
+
+      <!-- Label and input for company_id -->
+      <div class="form-group">
+        <label for="company_id" class="control-label">
+          Company
+        </label>
+
+        <input type="text" id="company_id" name="company_id" placeholder="Company" class="form-control" value="<%= @blockchain.company_id %>">
+      </div>
+
+      <!-- Label and input for source_id -->
+      <div class="form-group">
+        <label for="source_id" class="control-label">
+          Source
+        </label>
+
+        <input type="text" id="source_id" name="source_id" placeholder="Source" class="form-control" value="<%= @blockchain.source_id %>">
+      </div>
+
+      <!-- Label and input for price -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @blockchain.price %>">
+      </div>
+
+      <!-- Label and input for metric -->
+      <div class="form-group">
+        <label for="metric" class="control-label">
+          Metric
+        </label>
+
+        <input type="text" id="metric" name="metric" placeholder="Metric" class="form-control" value="<%= @blockchain.metric %>">
+      </div>
+
+      <!-- Label and input for tons -->
+      <div class="form-group">
+        <label for="tons" class="control-label">
+          Tons
+        </label>
+
+        <input type="text" id="tons" name="tons" placeholder="Tons" class="form-control" value="<%= @blockchain.tons %>">
+      </div>
+
+      <!-- Label and input for mode -->
+      <div class="form-group">
+        <label for="mode" class="control-label">
+          Mode
+        </label>
+
+        <input type="text" id="mode" name="mode" placeholder="Mode" class="form-control" value="<%= @blockchain.mode %>">
+      </div>
+
+      <!-- Label and input for terms -->
+      <div class="form-group">
+        <label for="terms" class="control-label">
+          Terms
+        </label>
+
+        <input type="text" id="terms" name="terms" placeholder="Terms" class="form-control" value="<%= @blockchain.terms %>">
+      </div>
+
+      <!-- Label and input for ship_start -->
+      <div class="form-group">
+        <label for="ship_start" class="control-label">
+          Ship start
+        </label>
+
+        <input type="text" id="ship_start" name="ship_start" placeholder="Ship start" class="form-control" value="<%= @blockchain.ship_start %>">
+      </div>
+
+      <!-- Label and input for completed -->
+      <div class="form-group">
+        <label for="completed" class="control-label">
+          Completed
+        </label>
+
+        <input type="text" id="completed" name="completed" placeholder="Completed" class="form-control" value="<%= @blockchain.completed %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Blockchain
+      </button>
+      or
+      <a href="/blockchains">Cancel</a>
+    </form>
+  </div>
+</div>

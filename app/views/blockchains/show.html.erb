@@ -1,0 +1,64 @@
+<div class="page-header">
+  <h3>Blockchain #<%= @blockchain.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Salesperson</dt>
+      <dd><%= @blockchain.salesperson_id %></dd>
+
+      <dt>Product</dt>
+      <dd><%= @blockchain.product_id %></dd>
+
+      <dt>State</dt>
+      <dd><%= @blockchain.state %></dd>
+
+      <dt>City</dt>
+      <dd><%= @blockchain.city %></dd>
+
+      <dt>Customer</dt>
+      <dd><%= @blockchain.customer_id %></dd>
+
+      <dt>Company</dt>
+      <dd><%= @blockchain.company_id %></dd>
+
+      <dt>Source</dt>
+      <dd><%= @blockchain.source_id %></dd>
+
+      <dt>Price</dt>
+      <dd><%= @blockchain.price %></dd>
+
+      <dt>Metric</dt>
+      <dd><%= @blockchain.metric %></dd>
+
+      <dt>Tons</dt>
+      <dd><%= @blockchain.tons %></dd>
+
+      <dt>Mode</dt>
+      <dd><%= @blockchain.mode %></dd>
+
+      <dt>Terms</dt>
+      <dd><%= @blockchain.terms %></dd>
+
+      <dt>Ship start</dt>
+      <dd><%= @blockchain.ship_start %></dd>
+
+      <dt>Completed</dt>
+      <dd><%= @blockchain.completed %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/blockchains" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/blockchains/<%= @blockchain.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_blockchain/<%= @blockchain.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

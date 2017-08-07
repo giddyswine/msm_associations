@@ -1,0 +1,54 @@
+<div class="page-header">
+  <h1>
+    Blockchains
+    <a href="/blockchains/new" class="btn btn-lg btn-success">New Blockchain</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Salesperson</th>
+        <th>Product</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Customer</th>
+        <th>Company</th>
+        <th>Source</th>
+        <th>Price</th>
+        <th>Metric</th>
+        <th>Tons</th>
+        <th>Mode</th>
+        <th>Terms</th>
+        <th>Ship start</th>
+        <th>Completed</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @blockchains.each do |blockchain| %>
+      <tr>
+        <td><%= blockchain.salesperson_id %></td>
+        <td><%= blockchain.product_id %></td>
+        <td><%= blockchain.state %></td>
+        <td><%= blockchain.city %></td>
+        <td><%= blockchain.customer_id %></td>
+        <td><%= blockchain.company_id %></td>
+        <td><%= blockchain.source_id %></td>
+        <td><%= blockchain.price %></td>
+        <td><%= blockchain.metric %></td>
+        <td><%= blockchain.tons %></td>
+        <td><%= blockchain.mode %></td>
+        <td><%= blockchain.terms %></td>
+        <td><%= blockchain.ship_start %></td>
+        <td><%= blockchain.completed %></td>
+        <td>
+          <a href="/blockchains/<%= blockchain.id %>" class="btn btn-primary">Show</a>
+          <a href="/blockchains/<%= blockchain.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_blockchain/<%= blockchain.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
