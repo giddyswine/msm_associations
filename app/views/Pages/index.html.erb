@@ -28,12 +28,12 @@
 
       <% @blockchains.each do |blockchain| %>
       <tr>
-        <td><a href="/salespeople/<%=blockchain.salesperson_id%>"><%= Salesperson.find(blockchain.salesperson_id).salesperson %></a></td>
-        <td><%= Product.find(blockchain.product_id).name %></td>
+        <td><%= blockchain.salesperson_id %></td>
+        <td><%= blockchain.product_id %></td>
         <td><%= blockchain.state %></td>
         <td><%= blockchain.city %></td>
-        <td><a href="/customers/<%=blockchain.customer_id%>"><%= Customer.find(blockchain.customer_id).short_name %></a></td>
-        <td><a href="/companies/<%=blockchain.company_id%>"><%= Company.find(blockchain.company_id).name %></a></td>
+        <td><%= blockchain.customer_id %></td>
+        <td><%= blockchain.company_id %></td>
         <td><%= blockchain.source_id %></td>
         <td><%= blockchain.price %></td>
         <td><%= blockchain.metric %></td>

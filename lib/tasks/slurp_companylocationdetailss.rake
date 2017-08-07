@@ -4,7 +4,7 @@ namespace :slurp do
     
     require "csv"
 
-    csv_text = File.read(Rails.root.join("lib", "csvs", "com.csv"))
+    csv_text = File.read(Rails.root.join("lib", "csvs", "blockchain.csv"))
     csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
     csv.each do |row|
       t = Blockchain.new
@@ -23,7 +23,7 @@ namespace :slurp do
       t.ship_start = row["ship_start"]
       t.completed = row["completed"]
       t.save
-      puts "#{t.price} saved"
+      puts "#{t.name} saved"
     end
 
   end
