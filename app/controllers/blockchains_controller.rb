@@ -12,6 +12,7 @@ class BlockchainsController < ApplicationController
   end
 
   def new
+    @salespeople = Salesperson.all
     @blockchain = Blockchain.new
 
     render("blockchains/new.html.erb")

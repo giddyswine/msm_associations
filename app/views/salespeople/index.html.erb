@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     Salespeople
-    <a href="/salespeople/new" class="btn btn-lg btn-success">New Salesperson</a>
+    <a href="/salespeople/new" class="btn btn-sm btn-success">New Salesperson</a>
   </h1>
 </div>
 
@@ -10,16 +10,17 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Salesperson</th>
+        <th>Recent Bids</th>
         <th>Actions</th>
       </tr>
 
       <% @salespeople.each do |salesperson| %>
       <tr>
-        <td><%= salesperson.salesperson %></td>
+        <td><a href="/salespeople/<%= salesperson.id %>"><%= salesperson.salesperson %></a></a></td>
+        <td>count of recent bids (within last week)</td>
         <td>
-          <a href="/salespeople/<%= salesperson.id %>" class="btn btn-primary">Show</a>
-          <a href="/salespeople/<%= salesperson.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_salesperson/<%= salesperson.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/salespeople/<%= salesperson.id %>/edit" class="btn-xs btn-warning">Edit</a>
+          <a href="/delete_salesperson/<%= salesperson.id %>" class="btn-xs btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>

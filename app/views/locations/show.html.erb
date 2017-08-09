@@ -1,39 +1,67 @@
 <div class="page-header">
-  <h3>Location #<%= @location.id %></h3>
-</div>
-
-<div class="row">
-  <div class="col-md-12 mb-2">
-    <dl class="dl-horizontal">
-      <dt>Company</dt>
-      <dd><%= Company.find(@location.company_id).name %></dd>
-
-      <dt>City</dt>
-      <dd><%= @location.city %></dd>
-
-      <dt>State</dt>
-      <dd><%= @location.state %></dd>
-
-      
+    <div class="btn-group btn-group-justified">
+      <a href="/locations" class="btn-xs btn-primary">
+        Back
+      </a>
+      <a href="/locations/<%= @location.id %>/edit" class="btn-xs btn-warning">
+        Edit
+      </a>
+      <a href="/delete_location/<%= @location.id %>" class="btn-xs btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  <h3><%= Company.find(@location.company_id).name %>: <%= @location.city %>, <%= @location.state %></h3>
         <dt>Products Shipped</dt>
           <dd><table class="table">  
             <% Locationdetail.where(location_id: @location.id).each do |location| %>
             <li><%= Product.find(location.product_id).name %></a></li>
             <%end%>
+          <dl></dl>
         </dd>
+</div>
 
-    </dl>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Salesperson</th>
+        <th>Product</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Customer</th>
+        <th>Company</th>
+        <th>Price</th>
+        <th>Metric</th>
+        <th>Tons</th>
+        <th>Mode</th>
+        <th>Terms</th>
+        <th>Ship start</th>
+        <th>Completed</th>
+        <th>Actions</th>
+      </tr>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/locations" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/locations/<%= @location.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_location/<%= @location.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
-    </div>
+      <% Blockchain.where(source_id: @location.id).each do |blockchain| %>
+      <tr>
+        <td><a href="/salespeople/<%=blockchain.salesperson_id%>"><%= Salesperson.find(blockchain.salesperson_id).salesperson %></a></td>
+        <td><%= Product.find(blockchain.product_id).name %></td>
+        <td><a href="/states/<%= blockchain.state %>"><%= State.find(blockchain.state).state %></a></td>
+        <td><%= blockchain.city %></td>
+        <td><a href="/customers/<%=blockchain.customer_id%>"><%= Customer.find(blockchain.customer_id).short_name %></a></td>
+        <td><a href="/companies/<%=blockchain.company_id%>"><%= Company.find(blockchain.company_id).name %></a></td>
+        <td><%= blockchain.price %></td>
+        <td><%= blockchain.metric %></td>
+        <td><%= blockchain.tons %></td>
+        <td><a href="/modes/<%= blockchain.mode %>"><%= Mode.find(blockchain.mode).mode %></a></td>
+        <td><%= blockchain.terms %></td>
+        <td><%= blockchain.ship_start %></td>
+        <td><%= blockchain.completed %></td>
+        <td>
+          <a href="/blockchains/<%= blockchain.id %>" class="btn-xs btn-primary">Show</a>
+          <a href="/blockchains/<%= blockchain.id %>/edit" class="btn-xs btn-warning">Edit</a>
+          <a href="/delete_blockchain/<%= blockchain.id %>" class="btn-xs btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
   </div>
 </div>

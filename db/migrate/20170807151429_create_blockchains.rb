@@ -13,7 +13,7 @@ class CreateBlockchains < ActiveRecord::Migration[5.0]
       t.decimal :tons
       t.string :mode
       t.string :terms
-      t.date :ship_start
+      t.string :ship_start
       t.string :completed
 
       t.timestamps

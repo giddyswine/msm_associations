@@ -8,8 +8,21 @@
   <% end %>
 <% end %>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
 <div class="page-header">
-  <h3>Add Blockchain</h3>
+  <h3>Add Chatter</h3>
 </div>
 
 <div class="row">
@@ -18,23 +31,13 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for salesperson_id -->
-      <div class="form-group">
-        <label for="salesperson_id" class="control-label">
-          Salesperson
-        </label>
-
-        <input type="text" id="salesperson_id" name="salesperson_id" placeholder="Salesperson" class="form-control" value="<%= @blockchain.salesperson_id %>">
-      </div>
-
+    <h6>add login salesperson to form</h6>
       <!-- Label and input for product_id -->
       <div class="form-group">
         <label for="product_id" class="control-label">
           Product
         </label>
-
         <input type="text" id="product_id" name="product_id" placeholder="Product" class="form-control" value="<%= @blockchain.product_id %>">
-      </div>
 
       <!-- Label and input for state -->
       <div class="form-group">

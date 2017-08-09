@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     Companies
-    <a href="/companies/new" class="btn btn-lg btn-success">New Company</a>
+    <a href="/companies/new" class="btn btn-sm btn-success">New Company</a>
   </h1>
 </div>
 
@@ -17,9 +17,9 @@
       <tr>
         <td><%= company.name %></td>
         <td>
-          <a href="/companies/<%= company.id %>" class="btn btn-primary">Show</a>
-          <a href="/companies/<%= company.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_company/<%= company.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/companies/<%= company.id %>" class="btn-xs btn-primary">Show</a>
+          <a href="/companies/<%= company.id %>/edit" class="btn-xs btn-warning">Edit</a>
+          <a href="/delete_company/<%= company.id %>" class="btn-xs btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>

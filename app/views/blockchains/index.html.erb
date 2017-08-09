@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     Blockchains
-    <a href="/blockchains/new" class="btn btn-lg btn-success">New Blockchain</a>
+    <a href="/blockchains/new" class="btn btn-sm btn-success">New Blockchain</a>
   </h1>
 </div>
 
@@ -30,22 +30,22 @@
       <tr>
         <td><a href="/salespeople/<%=blockchain.salesperson_id%>"><%= Salesperson.find(blockchain.salesperson_id).salesperson %></a></td>
         <td><%= Product.find(blockchain.product_id).name %></td>
-        <td><%= blockchain.state %></td>
+        <td><a href="/states/<%= blockchain.state %>"><%= State.find(blockchain.state).state %></a></td>
         <td><%= blockchain.city %></td>
         <td><a href="/customers/<%=blockchain.customer_id%>"><%= Customer.find(blockchain.customer_id).short_name %></a></td>
         <td><a href="/companies/<%=blockchain.company_id%>"><%= Company.find(blockchain.company_id).name %></a></td>
-        <td><%= blockchain.source_id%></td>
+        <td><a href="/locations/<%=blockchain.source_id%>"><%= Location.find(blockchain.source_id).city%></a></td>
         <td><%= blockchain.price %></td>
         <td><%= blockchain.metric %></td>
         <td><%= blockchain.tons %></td>
-        <td><%= blockchain.mode %></td>
+        <td><a href="/modes/<%= blockchain.mode %>"><%= Mode.find(blockchain.mode).mode %></a></td>
         <td><%= blockchain.terms %></td>
         <td><%= blockchain.ship_start %></td>
         <td><%= blockchain.completed %></td>
         <td>
-          <a href="/blockchains/<%= blockchain.id %>" class="btn btn-primary">Show</a>
-          <a href="/blockchains/<%= blockchain.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_blockchain/<%= blockchain.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/blockchains/<%= blockchain.id %>" class="btn-xs btn-primary">Show</a>
+          <a href="/blockchains/<%= blockchain.id %>/edit" class="btn-xs btn-warning">Edit</a>
+          <a href="/delete_blockchain/<%= blockchain.id %>" class="btn-xs btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>

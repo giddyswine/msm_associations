@@ -1,6 +1,58 @@
 namespace :slurp do
   desc "TODO"
-  task blockchain: :environment do
+  task states: :environment do
+    
+    require "csv"
+
+    csv_text = File.read(Rails.root.join("lib", "csvs", "states.csv"))
+    csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+    csv.each do |row|
+      t = State.new
+      t.state = row["states"]
+      t.save
+      puts "#{t.state} saved"
+    end
+
+  end
+
+
+  task locations: :environment do
+    
+    require "csv"
+
+    csv_text = File.read(Rails.root.join("lib", "csvs", "locations.csv"))
+    csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+    csv.each do |row|
+      t = Location.new
+      t.company_id = row["company_id"]
+      t.city = row["city"]
+      t.state = row["state"]
+      t.save
+      puts "#{t.state} saved"
+    end
+
+  end
+
+
+  task locationdetails: :environment do
+    
+    require "csv"
+
+    csv_text = File.read(Rails.root.join("lib", "csvs", "locationdetails.csv"))
+    csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+    csv.each do |row|
+      t = Locationdetail.new
+      t.company_id = row["company_id"]
+      t.location_id = row["location_id"]
+      t.product_id = row["product"]
+      t.capacity = row["capacity"]
+      t.save
+      puts "#{t.capacity} saved"
+    end
+
+  end
+
+ task blockchain: :environment do
     
     require "csv"
 
