@@ -1,6 +1,6 @@
 class BlockchainsController < ApplicationController
   def index
-    @blockchains = Blockchain.all
+    @blockchains = Blockchain.all.order("created_at DESC").limit(50)
 
     render("blockchains/index.html.erb")
   end
@@ -13,6 +13,12 @@ class BlockchainsController < ApplicationController
 
   def new
     @salespeople = Salesperson.all
+    @product = Product.all
+    @state = State.all
+    @customer = Customer.all
+    @company = Company.all
+    @location = Location.all
+    @mode = Mode.all
     @blockchain = Blockchain.new
 
     render("blockchains/new.html.erb")

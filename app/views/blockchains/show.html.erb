@@ -6,37 +6,34 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Salesperson</dt>
-      <dd><%= @blockchain.salesperson_id %></dd>
+      <dd><%= Salesperson.find(@blockchain.salesperson_id).salesperson %></dd>
 
       <dt>Product</dt>
-      <dd><%= @blockchain.product_id %></dd>
+      <dd><%= Product.find(@blockchain.product_id).name %></dd>
 
       <dt>State</dt>
-      <dd><%= @blockchain.state %></dd>
+      <dd><%= State.find(@blockchain.state).state %></dd>
 
       <dt>City</dt>
       <dd><%= @blockchain.city %></dd>
 
       <dt>Customer</dt>
-      <dd><%= @blockchain.customer_id %></dd>
+      <dd><%= Customer.find(@blockchain.customer_id).name %></dd>
 
       <dt>Company</dt>
-      <dd><%= @blockchain.company_id %></dd>
+      <dd><%= Company.find(@blockchain.company_id).name %></dd>
 
       <dt>Source</dt>
-      <dd><%= @blockchain.source_id %></dd>
+      <dd><%= Location.find(@blockchain.source_id).city %>, <%= Location.find(@blockchain.source_id).state %></dd>
 
       <dt>Price</dt>
-      <dd><%= @blockchain.price %></dd>
-
-      <dt>Metric</dt>
-      <dd><%= @blockchain.metric %></dd>
+      <dd><%= @blockchain.price %> <%= @blockchain.metric %></dd>
 
       <dt>Tons</dt>
       <dd><%= @blockchain.tons %></dd>
 
       <dt>Mode</dt>
-      <dd><%= @blockchain.mode %></dd>
+      <dd><%= Mode.find(@blockchain.mode).mode %></dd>
 
       <dt>Terms</dt>
       <dd><%= @blockchain.terms %></dd>

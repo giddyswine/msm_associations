@@ -26,7 +26,7 @@
         <th>Actions</th>
       </tr>
 
-      <% @blockchains.each do |blockchain| %>
+      <% @blockchains.order("created_at DESC").limit(100).each do |blockchain| %>
       <tr>
         <td><a href="/salespeople/<%=blockchain.salesperson_id%>"><%= Salesperson.find(blockchain.salesperson_id).salesperson %></a></td>
         <td><%= Product.find(blockchain.product_id).name %></td>

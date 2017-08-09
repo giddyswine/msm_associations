@@ -36,7 +36,7 @@
         <th>Actions</th>
       </tr>
 
-      <% Blockchain.where(mode: @mode.id).each do |blockchain| %>
+      <% Blockchain.where(mode: @mode.id).order("created_at DESC").limit(25).each do |blockchain| %>
       <tr>
         <td><a href="/salespeople/<%=blockchain.salesperson_id%>"><%= Salesperson.find(blockchain.salesperson_id).salesperson %></a></td>
         <td><%= Product.find(blockchain.product_id).name %></td>

@@ -34,7 +34,7 @@
         <th>Completed</th>
       </tr>
 
-      <% Blockchain.where(customer_id: @customer.id).each do |blockchain| %>
+      <% Blockchain.where(customer_id: @customer.id).order("created_at DESC").limit(25).each do |blockchain| %>
       <tr>
         <td><a href="/salespeople/<%=blockchain.salesperson_id%>"><%= Salesperson.find(blockchain.salesperson_id).salesperson %></a></td>
         <td><%= blockchain.created_at %></td>
