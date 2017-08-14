@@ -41,6 +41,7 @@ class StatesController < ApplicationController
     @state = State.find(params[:id])
 
     @state.state = params[:state]
+    @state.name = params[:name]
 
     save_status = @state.save
 

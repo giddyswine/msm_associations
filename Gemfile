@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem "starter_generators", :git => "https://github.com/raghubetina/starter_generators"
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.2'
@@ -83,3 +84,6 @@ end
 
 gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 4.7.0'
+
+gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'

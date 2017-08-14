@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users
+ 
+  root "blockchains#index"
   # Routes for the State resource:
   # CREATE
   get "/states/new", :controller => "states", :action => "new"
@@ -119,7 +123,7 @@ Rails.application.routes.draw do
   get "/delete_blockchain/:id", :controller => "blockchains", :action => "destroy"
   #------------------------------
 
-  get "/", :controller => "blockchains", :action => "new"
+  get "/", :controller => "blockchains", :action => "index"
   
 
   

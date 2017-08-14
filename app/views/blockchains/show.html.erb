@@ -1,30 +1,30 @@
 <div class="page-header">
-  <h3>Blockchain #<%= @blockchain.id %></h3>
+  <h4>Chatter Entry #<%= @blockchain.id %></h4>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Salesperson</dt>
-      <dd><%= Salesperson.find(@blockchain.salesperson_id).salesperson %></dd>
+      <dd><a href="/salespeople/<%=@blockchain.salesperson_id%>"><%= Salesperson.find(@blockchain.salesperson_id).salesperson %></a></dd>
 
       <dt>Product</dt>
       <dd><%= Product.find(@blockchain.product_id).name %></dd>
 
       <dt>State</dt>
-      <dd><%= State.find(@blockchain.state).state %></dd>
+      <dd><a href="/states/<%= @blockchain.state %>"><%= State.find(@blockchain.state).state %></a></dd>
 
       <dt>City</dt>
       <dd><%= @blockchain.city %></dd>
 
       <dt>Customer</dt>
-      <dd><%= Customer.find(@blockchain.customer_id).name %></dd>
+      <dd><a href="/customers/<%=@blockchain.customer_id%>"><%= Customer.find(@blockchain.customer_id).short_name %> (<%= Customer.find(@blockchain.customer_id).promise_id %>)</a></dd>
 
       <dt>Company</dt>
-      <dd><%= Company.find(@blockchain.company_id).name %></dd>
+      <dd><a href="/companies/<%=@blockchain.company_id%>"><%= Company.find(@blockchain.company_id).name %></a></dd>
 
       <dt>Source</dt>
-      <dd><%= Location.find(@blockchain.source_id).city %>, <%= Location.find(@blockchain.source_id).state %></dd>
+      <dd><a href="/locations/<%=@blockchain.source_id%>"><%= Location.find(@blockchain.source_id).city%></a></dd>
 
       <dt>Price</dt>
       <dd><%= @blockchain.price %> <%= @blockchain.metric %></dd>
@@ -33,7 +33,7 @@
       <dd><%= @blockchain.tons %></dd>
 
       <dt>Mode</dt>
-      <dd><%= Mode.find(@blockchain.mode).mode %></dd>
+      <dd><a href="/modes/<%= @blockchain.mode %>"><%= Mode.find(@blockchain.mode).mode %></a></dd>
 
       <dt>Terms</dt>
       <dd><%= @blockchain.terms %></dd>
