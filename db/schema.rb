@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814142247) do
+ActiveRecord::Schema.define(version: 20170816141835) do
 
   create_table "Blockchains", force: :cascade do |t|
     t.integer  "salesperson_id"
@@ -157,6 +157,43 @@ ActiveRecord::Schema.define(version: 20170814142247) do
     t.string   "salesperson"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "shiptolocations", force: :cascade do |t|
+    t.integer  "state"
+    t.string   "county"
+    t.string   "city"
+    t.integer  "shiptonumber"
+    t.string   "shiptoname"
+    t.string   "nickname"
+    t.string   "nh3"
+    t.string   "uan"
+    t.string   "urea"
+    t.string   "an"
+    t.string   "truck"
+    t.string   "rail"
+    t.string   "unittrain"
+    t.string   "railline"
+    t.string   "barge"
+    t.integer  "nh3storage"
+    t.integer  "uanstorage"
+    t.integer  "ureastorage"
+    t.integer  "anstorage"
+    t.integer  "nh32015"
+    t.integer  "nh32016"
+    t.integer  "nh32017"
+    t.integer  "uan2015"
+    t.integer  "uan2016"
+    t.integer  "uan2017"
+    t.integer  "urea2015"
+    t.integer  "urea2016"
+    t.integer  "urea2017"
+    t.integer  "an2015"
+    t.integer  "an2016"
+    t.integer  "an2017"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "parent"
   end
 
   create_table "states", force: :cascade do |t|

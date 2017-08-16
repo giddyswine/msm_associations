@@ -1,0 +1,96 @@
+<div class="page-header">
+  <h1>
+    Shiptolocations
+    <a href="/shiptolocations/new" class="btn btn-lg btn-success">New Shiptolocation</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>State</th>
+        <th>County</th>
+        <th>City</th>
+        <th>Shiptonumber</th>
+        <th>Shiptoname</th>
+        <th>parent</th>
+        <th>Nh3</th>
+        <th>Uan</th>
+        <th>Urea</th>
+        <th>An</th>
+        <th>Truck</th>
+        <th>Rail</th>
+        <th>Unittrain</th>
+        <th>Railline</th>
+        <th>Barge</th>
+        <th>Nh3storage</th>
+        <th>Uanstorage</th>
+        <th>Ureastorage</th>
+        <th>Anstorage</th>
+        <th>Nh32015</th>
+        <th>Nh32016</th>
+        <th>Nh32017</th>
+        <th>Uan2015</th>
+        <th>Uan2016</th>
+        <th>Uan2017</th>
+        <th>Urea2015</th>
+        <th>Urea2016</th>
+        <th>Urea2017</th>
+        <th>An2015</th>
+        <th>An2016</th>
+        <th>An2017</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @shiptolocations.order("created_at DESC").limit(100).each do |shiptolocation| %>
+
+      <tr>
+        <td><a href="/states/<%= shiptolocation.state %>"><%= State.find(shiptolocation.state).state %></a></td>
+        <td><%= shiptolocation.county %></td>
+        <td><%= shiptolocation.city %></td>
+        <td><%= shiptolocation.shiptonumber %></td>
+        <td><%= shiptolocation.shiptoname %></td>
+
+        <% if Customer.where(promise_id: shiptolocation.parent).first.present? %>
+          <td><a href="customers/<%= Customer.where(promise_id: shiptolocation.parent).first.id %>"><%= Customer.where(promise_id: shiptolocation.parent).first.name %></a></td>
+        <% else %>
+          <td>unlinked</td>
+        <% end %>
+
+
+        <td><%= shiptolocation.nh3 %></td>
+        <td><%= shiptolocation.uan %></td>
+        <td><%= shiptolocation.urea %></td>
+        <td><%= shiptolocation.an %></td>
+        <td><%= shiptolocation.truck %></td>
+        <td><%= shiptolocation.rail %></td>
+        <td><%= shiptolocation.unittrain %></td>
+        <td><%= shiptolocation.railline %></td>
+        <td><%= shiptolocation.barge %></td>
+        <td><%= shiptolocation.nh3storage %></td>
+        <td><%= shiptolocation.uanstorage %></td>
+        <td><%= shiptolocation.ureastorage %></td>
+        <td><%= shiptolocation.anstorage %></td>
+        <td><%= shiptolocation.nh32015 %></td>
+        <td><%= shiptolocation.nh32016 %></td>
+        <td><%= shiptolocation.nh32017 %></td>
+        <td><%= shiptolocation.uan2015 %></td>
+        <td><%= shiptolocation.uan2016 %></td>
+        <td><%= shiptolocation.uan2017 %></td>
+        <td><%= shiptolocation.urea2015 %></td>
+        <td><%= shiptolocation.urea2016 %></td>
+        <td><%= shiptolocation.urea2017 %></td>
+        <td><%= shiptolocation.an2015 %></td>
+        <td><%= shiptolocation.an2016 %></td>
+        <td><%= shiptolocation.an2017 %></td>
+        <td>
+          <a href="/shiptolocations/<%= shiptolocation.id %>" class="btn-sm btn-primary">Show</a>
+          <a href="/shiptolocations/<%= shiptolocation.id %>/edit" class="btn-sm btn-warning">Edit</a>
+          <a href="/delete_shiptolocation/<%= shiptolocation.id %>" class="btn-sm btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

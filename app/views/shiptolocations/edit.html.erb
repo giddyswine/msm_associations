@@ -1,0 +1,316 @@
+<!-- Validation failure messages -->
+<% if @shiptolocation.errors.any? %>
+  <% @shiptolocation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Shiptolocation #<%= @shiptolocation.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_shiptolocation/<%= @shiptolocation.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @shiptolocation.state %>">
+      </div>
+
+      <!-- Label and input for county -->
+      <div class="form-group">
+        <label for="county" class="control-label">
+          County
+        </label>
+
+        <input type="text" id="county" name="county" placeholder="County" class="form-control" value="<%= @shiptolocation.county %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @shiptolocation.city %>">
+      </div>
+
+      <!-- Label and input for shiptonumber -->
+      <div class="form-group">
+        <label for="shiptonumber" class="control-label">
+          Shiptonumber
+        </label>
+
+        <input type="text" id="shiptonumber" name="shiptonumber" placeholder="Shiptonumber" class="form-control" value="<%= @shiptolocation.shiptonumber %>">
+      </div>
+
+      <!-- Label and input for shiptoname -->
+      <div class="form-group">
+        <label for="shiptoname" class="control-label">
+          Shiptoname
+        </label>
+
+        <input type="text" id="shiptoname" name="shiptoname" placeholder="Shiptoname" class="form-control" value="<%= @shiptolocation.shiptoname %>">
+      </div>
+
+      <!-- Label and input for nickname -->
+      <div class="form-group">
+        <label for="nickname" class="control-label">
+          Nickname
+        </label>
+
+        <input type="text" id="nickname" name="nickname" placeholder="Nickname" class="form-control" value="<%= @shiptolocation.nickname %>">
+      </div>
+
+      <!-- Label and input for nickname -->
+      <div class="form-group">
+        <label for="parent" class="control-label">
+          Parent
+        </label>
+
+        <input type="text" id="parent" name="parent" placeholder="Parent" class="form-control" value="<%= @shiptolocation.parent %>">
+      </div>
+
+      <!-- Label and input for nh3 -->
+      <div class="form-group">
+        <label for="nh3" class="control-label">
+          Nh3
+        </label>
+
+        <input type="text" id="nh3" name="nh3" placeholder="Nh3" class="form-control" value="<%= @shiptolocation.nh3 %>">
+      </div>
+
+      <!-- Label and input for uan -->
+      <div class="form-group">
+        <label for="uan" class="control-label">
+          Uan
+        </label>
+
+        <input type="text" id="uan" name="uan" placeholder="Uan" class="form-control" value="<%= @shiptolocation.uan %>">
+      </div>
+
+      <!-- Label and input for urea -->
+      <div class="form-group">
+        <label for="urea" class="control-label">
+          Urea
+        </label>
+
+        <input type="text" id="urea" name="urea" placeholder="Urea" class="form-control" value="<%= @shiptolocation.urea %>">
+      </div>
+
+      <!-- Label and input for an -->
+      <div class="form-group">
+        <label for="an" class="control-label">
+          An
+        </label>
+
+        <input type="text" id="an" name="an" placeholder="An" class="form-control" value="<%= @shiptolocation.an %>">
+      </div>
+
+      <!-- Label and input for truck -->
+      <div class="form-group">
+        <label for="truck" class="control-label">
+          Truck
+        </label>
+
+        <input type="text" id="truck" name="truck" placeholder="Truck" class="form-control" value="<%= @shiptolocation.truck %>">
+      </div>
+
+      <!-- Label and input for rail -->
+      <div class="form-group">
+        <label for="rail" class="control-label">
+          Rail
+        </label>
+
+        <input type="text" id="rail" name="rail" placeholder="Rail" class="form-control" value="<%= @shiptolocation.rail %>">
+      </div>
+
+      <!-- Label and input for unittrain -->
+      <div class="form-group">
+        <label for="unittrain" class="control-label">
+          Unittrain
+        </label>
+
+        <input type="text" id="unittrain" name="unittrain" placeholder="Unittrain" class="form-control" value="<%= @shiptolocation.unittrain %>">
+      </div>
+
+      <!-- Label and input for railline -->
+      <div class="form-group">
+        <label for="railline" class="control-label">
+          Railline
+        </label>
+
+        <input type="text" id="railline" name="railline" placeholder="Railline" class="form-control" value="<%= @shiptolocation.railline %>">
+      </div>
+
+      <!-- Label and input for barge -->
+      <div class="form-group">
+        <label for="barge" class="control-label">
+          Barge
+        </label>
+
+        <input type="text" id="barge" name="barge" placeholder="Barge" class="form-control" value="<%= @shiptolocation.barge %>">
+      </div>
+
+      <!-- Label and input for nh3storage -->
+      <div class="form-group">
+        <label for="nh3storage" class="control-label">
+          Nh3storage
+        </label>
+
+        <input type="text" id="nh3storage" name="nh3storage" placeholder="Nh3storage" class="form-control" value="<%= @shiptolocation.nh3storage %>">
+      </div>
+
+      <!-- Label and input for uanstorage -->
+      <div class="form-group">
+        <label for="uanstorage" class="control-label">
+          Uanstorage
+        </label>
+
+        <input type="text" id="uanstorage" name="uanstorage" placeholder="Uanstorage" class="form-control" value="<%= @shiptolocation.uanstorage %>">
+      </div>
+
+      <!-- Label and input for ureastorage -->
+      <div class="form-group">
+        <label for="ureastorage" class="control-label">
+          Ureastorage
+        </label>
+
+        <input type="text" id="ureastorage" name="ureastorage" placeholder="Ureastorage" class="form-control" value="<%= @shiptolocation.ureastorage %>">
+      </div>
+
+      <!-- Label and input for anstorage -->
+      <div class="form-group">
+        <label for="anstorage" class="control-label">
+          Anstorage
+        </label>
+
+        <input type="text" id="anstorage" name="anstorage" placeholder="Anstorage" class="form-control" value="<%= @shiptolocation.anstorage %>">
+      </div>
+
+      <!-- Label and input for nh32015 -->
+      <div class="form-group">
+        <label for="nh32015" class="control-label">
+          Nh32015
+        </label>
+
+        <input type="text" id="nh32015" name="nh32015" placeholder="Nh32015" class="form-control" value="<%= @shiptolocation.nh32015 %>">
+      </div>
+
+      <!-- Label and input for nh32016 -->
+      <div class="form-group">
+        <label for="nh32016" class="control-label">
+          Nh32016
+        </label>
+
+        <input type="text" id="nh32016" name="nh32016" placeholder="Nh32016" class="form-control" value="<%= @shiptolocation.nh32016 %>">
+      </div>
+
+      <!-- Label and input for nh32017 -->
+      <div class="form-group">
+        <label for="nh32017" class="control-label">
+          Nh32017
+        </label>
+
+        <input type="text" id="nh32017" name="nh32017" placeholder="Nh32017" class="form-control" value="<%= @shiptolocation.nh32017 %>">
+      </div>
+
+      <!-- Label and input for uan2015 -->
+      <div class="form-group">
+        <label for="uan2015" class="control-label">
+          Uan2015
+        </label>
+
+        <input type="text" id="uan2015" name="uan2015" placeholder="Uan2015" class="form-control" value="<%= @shiptolocation.uan2015 %>">
+      </div>
+
+      <!-- Label and input for uan2016 -->
+      <div class="form-group">
+        <label for="uan2016" class="control-label">
+          Uan2016
+        </label>
+
+        <input type="text" id="uan2016" name="uan2016" placeholder="Uan2016" class="form-control" value="<%= @shiptolocation.uan2016 %>">
+      </div>
+
+      <!-- Label and input for uan2017 -->
+      <div class="form-group">
+        <label for="uan2017" class="control-label">
+          Uan2017
+        </label>
+
+        <input type="text" id="uan2017" name="uan2017" placeholder="Uan2017" class="form-control" value="<%= @shiptolocation.uan2017 %>">
+      </div>
+
+      <!-- Label and input for urea2015 -->
+      <div class="form-group">
+        <label for="urea2015" class="control-label">
+          Urea2015
+        </label>
+
+        <input type="text" id="urea2015" name="urea2015" placeholder="Urea2015" class="form-control" value="<%= @shiptolocation.urea2015 %>">
+      </div>
+
+      <!-- Label and input for urea2016 -->
+      <div class="form-group">
+        <label for="urea2016" class="control-label">
+          Urea2016
+        </label>
+
+        <input type="text" id="urea2016" name="urea2016" placeholder="Urea2016" class="form-control" value="<%= @shiptolocation.urea2016 %>">
+      </div>
+
+      <!-- Label and input for urea2017 -->
+      <div class="form-group">
+        <label for="urea2017" class="control-label">
+          Urea2017
+        </label>
+
+        <input type="text" id="urea2017" name="urea2017" placeholder="Urea2017" class="form-control" value="<%= @shiptolocation.urea2017 %>">
+      </div>
+
+      <!-- Label and input for an2015 -->
+      <div class="form-group">
+        <label for="an2015" class="control-label">
+          An2015
+        </label>
+
+        <input type="text" id="an2015" name="an2015" placeholder="An2015" class="form-control" value="<%= @shiptolocation.an2015 %>">
+      </div>
+
+      <!-- Label and input for an2016 -->
+      <div class="form-group">
+        <label for="an2016" class="control-label">
+          An2016
+        </label>
+
+        <input type="text" id="an2016" name="an2016" placeholder="An2016" class="form-control" value="<%= @shiptolocation.an2016 %>">
+      </div>
+
+      <!-- Label and input for an2017 -->
+      <div class="form-group">
+        <label for="an2017" class="control-label">
+          An2017
+        </label>
+
+        <input type="text" id="an2017" name="an2017" placeholder="An2017" class="form-control" value="<%= @shiptolocation.an2017 %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Shiptolocation
+      </button>
+      or
+      <a href="/shiptolocations/<%= @shiptolocation.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

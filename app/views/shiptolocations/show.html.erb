@@ -1,0 +1,118 @@
+<div class="page-header">
+  <h3>Shiptolocation #<%= @shiptolocation.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>State</dt>
+      <dd><%= @shiptolocation.state %></dd>
+
+      <dt>County</dt>
+      <dd><%= @shiptolocation.county %></dd>
+
+      <dt>City</dt>
+      <dd><%= @shiptolocation.city %></dd>
+
+      <dt>Shiptonumber</dt>
+      <dd><%= @shiptolocation.shiptonumber %></dd>
+
+      <dt>Shiptoname</dt>
+      <dd><%= @shiptolocation.shiptoname %></dd>
+
+      <dt>Nickname</dt>
+      <dd><%= @shiptolocation.nickname %></dd>
+
+      <dt>parent</dt>
+      <dd><%= @shiptolocation.parent %></dd>
+
+      <dt>Nh3</dt>
+      <dd><%= @shiptolocation.nh3 %></dd>
+
+      <dt>Uan</dt>
+      <dd><%= @shiptolocation.uan %></dd>
+
+      <dt>Urea</dt>
+      <dd><%= @shiptolocation.urea %></dd>
+
+      <dt>An</dt>
+      <dd><%= @shiptolocation.an %></dd>
+
+      <dt>Truck</dt>
+      <dd><%= @shiptolocation.truck %></dd>
+
+      <dt>Rail</dt>
+      <dd><%= @shiptolocation.rail %></dd>
+
+      <dt>Unittrain</dt>
+      <dd><%= @shiptolocation.unittrain %></dd>
+
+      <dt>Railline</dt>
+      <dd><%= @shiptolocation.railline %></dd>
+
+      <dt>Barge</dt>
+      <dd><%= @shiptolocation.barge %></dd>
+
+      <dt>Nh3storage</dt>
+      <dd><%= @shiptolocation.nh3storage %></dd>
+
+      <dt>Uanstorage</dt>
+      <dd><%= @shiptolocation.uanstorage %></dd>
+
+      <dt>Ureastorage</dt>
+      <dd><%= @shiptolocation.ureastorage %></dd>
+
+      <dt>Anstorage</dt>
+      <dd><%= @shiptolocation.anstorage %></dd>
+
+      <dt>Nh32015</dt>
+      <dd><%= @shiptolocation.nh32015 %></dd>
+
+      <dt>Nh32016</dt>
+      <dd><%= @shiptolocation.nh32016 %></dd>
+
+      <dt>Nh32017</dt>
+      <dd><%= @shiptolocation.nh32017 %></dd>
+
+      <dt>Uan2015</dt>
+      <dd><%= @shiptolocation.uan2015 %></dd>
+
+      <dt>Uan2016</dt>
+      <dd><%= @shiptolocation.uan2016 %></dd>
+
+      <dt>Uan2017</dt>
+      <dd><%= @shiptolocation.uan2017 %></dd>
+
+      <dt>Urea2015</dt>
+      <dd><%= @shiptolocation.urea2015 %></dd>
+
+      <dt>Urea2016</dt>
+      <dd><%= @shiptolocation.urea2016 %></dd>
+
+      <dt>Urea2017</dt>
+      <dd><%= @shiptolocation.urea2017 %></dd>
+
+      <dt>An2015</dt>
+      <dd><%= @shiptolocation.an2015 %></dd>
+
+      <dt>An2016</dt>
+      <dd><%= @shiptolocation.an2016 %></dd>
+
+      <dt>An2017</dt>
+      <dd><%= @shiptolocation.an2017 %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/shiptolocations" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/shiptolocations/<%= @shiptolocation.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_shiptolocation/<%= @shiptolocation.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

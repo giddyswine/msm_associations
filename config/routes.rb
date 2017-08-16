@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Shiptolocation resource:
+  # CREATE
+  get "/shiptolocations/new", :controller => "shiptolocations", :action => "new"
+  post "/create_shiptolocation", :controller => "shiptolocations", :action => "create"
+
+  # READ
+  get "/shiptolocations", :controller => "shiptolocations", :action => "index"
+  get "/shiptolocations/:id", :controller => "shiptolocations", :action => "show"
+
+  # UPDATE
+  get "/shiptolocations/:id/edit", :controller => "shiptolocations", :action => "edit"
+  post "/update_shiptolocation/:id", :controller => "shiptolocations", :action => "update"
+
+  # DELETE
+  get "/delete_shiptolocation/:id", :controller => "shiptolocations", :action => "destroy"
+  #------------------------------
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
