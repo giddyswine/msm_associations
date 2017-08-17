@@ -1,12 +1,26 @@
 <div class="page-header">
-  <h1>
-    Customers
-    <a href="/customers/new" class="btn btn-lg btn-success">New Customer</a>
-  </h1>
+  <h2>
+    Customer List <a href="/customers/new" class="btn pull-right btn-success">New Customer</a>
+    </h2>
+    
+  <form class="navbar-form navbar-left" role="search">
+    <%= search_form_for @q do |f| %>
+      <div class="form-group">
+        <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
+      </div>
+  
+      <%= f.submit :class => "btn btn-primary btn-default" %>
+      
+      <a href="/customers" class="btn btn-default btn-warning">Clear filters</a>
+    <% end %>
+  </form>
 </div>
 
 <div class="row">
   <div class="col-md-12">
+    
+      <%= paginate @customers %>
+    
     <table class="table table-striped table-hover">
       <tr>
         <th>Promise</th>
@@ -21,12 +35,13 @@
         <td><%= customer.name %></td>
         <td><%= customer.short_name %></td>
         <td>
-          <a href="/customers/<%= customer.id %>" class="btn btn-primary">Show</a>
-          <a href="/customers/<%= customer.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_customer/<%= customer.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/customers/<%= customer.id %>" class="btn btn-sm btn-primary">Show</a>
+          <a href="/customers/<%= customer.id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+          <a href="/delete_customer/<%= customer.id %>" class="btn btn-sm btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
       <% end %>
     </table>
   </div>
 </div>
+<%= paginate @customers %>

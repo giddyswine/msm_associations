@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users
+ 
+  root "blockchains#index"
+  
   # Routes for the Shiptolocation resource:
   # CREATE
   get "/shiptolocations/new", :controller => "shiptolocations", :action => "new"
@@ -15,12 +22,7 @@ Rails.application.routes.draw do
   # DELETE
   get "/delete_shiptolocation/:id", :controller => "shiptolocations", :action => "destroy"
   #------------------------------
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  devise_for :users
- 
-  root "blockchains#index"
+  
   # Routes for the State resource:
   # CREATE
   get "/states/new", :controller => "states", :action => "new"

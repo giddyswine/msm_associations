@@ -1,6 +1,8 @@
 class BlockchainsController < ApplicationController
   def index
-    @blockchains = Blockchain.all.order("created_at DESC").limit(50)
+
+    @blockchains = Blockchain.page(params[:page]).per(30)
+    
 
     render("blockchains/index.html.erb")
   end

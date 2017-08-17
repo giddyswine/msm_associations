@@ -1,6 +1,8 @@
 class ShiptolocationsController < ApplicationController
   def index
-    @shiptolocations = Shiptolocation.all
+    
+    @q = Shiptolocation.ransack(params[:q])
+    @shiptolocations = @q.result.page(params[:page]).per(30)    
 
     render("shiptolocations/index.html.erb")
   end

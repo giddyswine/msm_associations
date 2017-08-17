@@ -1,6 +1,9 @@
 class CustomersController < ApplicationController
+  
   def index
-    @customers = Customer.all
+    @q = Customer.ransack(params[:q])
+    @customers = @q.result.page(params[:page]).per(30)
+
 
     render("customers/index.html.erb")
   end
