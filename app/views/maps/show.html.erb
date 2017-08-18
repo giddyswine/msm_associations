@@ -1,0 +1,67 @@
+<div class="page-header">
+  <h3>Map #<%= @map.id %></h3>
+    <div class="btn-group btn-group">
+      <a href="/maps" class="btn-sm btn-primary">
+        Back
+      </a>
+      <a href="/maps/<%= @map.id %>/edit" class="btn-sm btn-warning">
+        Edit
+      </a>
+      <a href="/delete_map/<%= @map.id %>" class="btn-sm btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+      <dl class="dl-horizontal">
+        <dt>Title</dt>
+        <dd><%= @map.title %></dd>
+  
+        <dt>Address</dt>
+        <dd><%= @map.address %></dd>
+  
+        <dt>Latitude</dt>
+        <dd><%= @map.latitude %></dd>
+  
+        <dt>Longitude</dt>
+        <dd><%= @map.longitude %></dd>
+  
+        <dt>Visited by</dt>
+        <dd><%= @map.visited_by %></dd>
+  
+      </dl>
+
+  </div>
+</div>
+
+<header><h1 class="display-4"><%= @map.title %></h1></header>
+
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 75%;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: <%=@map.latitude %>, lng: <%=@map.longitude %>}; 
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBk2odFvKELGiTLthIZv1AcrRAtyJtoUCQ&callback=initMap">
+    </script>
+  </body>

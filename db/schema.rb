@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816141835) do
+ActiveRecord::Schema.define(version: 20170819084400) do
 
   create_table "Blockchains", force: :cascade do |t|
     t.integer  "salesperson_id"
@@ -129,6 +129,16 @@ ActiveRecord::Schema.define(version: 20170816141835) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "maps", force: :cascade do |t|
+    t.string   "title"
+    t.text     "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "visited_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "modes", force: :cascade do |t|
     t.string   "mode"
     t.datetime "created_at", null: false
@@ -194,6 +204,8 @@ ActiveRecord::Schema.define(version: 20170816141835) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "parent"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "states", force: :cascade do |t|

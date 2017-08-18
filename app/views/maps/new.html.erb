@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @map.errors.any? %>
+  <% @map.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Map</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_map" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @map.title %>">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <textarea id="address" name="address" placeholder="Address" class="form-control" rows="3"><%= @map.address %></textarea>
+      </div>
+
+      <!-- Label and input for latitude -->
+      <div class="form-group">
+        <label for="latitude" class="control-label">
+          Latitude
+        </label>
+
+        <input type="text" id="latitude" name="latitude" placeholder="Latitude" class="form-control" value="<%= @map.latitude %>">
+      </div>
+
+      <!-- Label and input for longitude -->
+      <div class="form-group">
+        <label for="longitude" class="control-label">
+          Longitude
+        </label>
+
+        <input type="text" id="longitude" name="longitude" placeholder="Longitude" class="form-control" value="<%= @map.longitude %>">
+      </div>
+
+      <!-- Label and input for visited_by -->
+      <div class="form-group">
+        <label for="visited_by" class="control-label">
+          Visited by
+        </label>
+
+        <input type="text" id="visited_by" name="visited_by" placeholder="Visited by" class="form-control" value="<%= @map.visited_by %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Map
+      </button>
+      or
+      <a href="/maps">Cancel</a>
+    </form>
+  </div>
+</div>

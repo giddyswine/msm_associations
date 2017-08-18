@@ -24,12 +24,13 @@
 
     <table class="table table-striped table-hover">
       <tr>
+        <th>Open</th>
         <th>State</th>
         <th>County</th>
         <th>City</th>
         <th>Shiptonumber</th>
         <th>Shiptoname</th>
-        <th>parent</th>
+        <th>Parent</th>
         <th>Nh3</th>
         <th>Uan</th>
         <th>Urea</th>
@@ -55,7 +56,6 @@
         <th>An2015</th>
         <th>An2016</th>
         <th>An2017</th>
-        <th>Show</th>
         <th>Edit</th>
         <!--<th>Delete</th>-->
       </tr>
@@ -63,6 +63,7 @@
       <% @shiptolocations.each do |shiptolocation| %>
 
       <tr>
+        <td><a href="/shiptolocations/<%= shiptolocation.id %>" class="btn-sm btn-primary">Open</a></td>
         <td><a href="/states/<%= shiptolocation.state %>"><%= State.find(shiptolocation.state).state %></a></td>
         <td><span class="text-nowrap"><%= shiptolocation.county %></span></td>
         <td><span class="text-nowrap"><%= shiptolocation.city %></span></td>
@@ -101,7 +102,6 @@
         <td><%= shiptolocation.an2015 %></td>
         <td><%= shiptolocation.an2016 %></td>
         <td><%= shiptolocation.an2017 %></td>
-        <td><a href="/shiptolocations/<%= shiptolocation.id %>" class="btn-sm btn-primary">Show</a></td>
         <td><a href="/shiptolocations/<%= shiptolocation.id %>/edit" class="btn-sm btn-warning">Edit</a></td>
         <!--<td><a href="/delete_shiptolocation/<%= shiptolocation.id %>" class="btn-sm btn-danger" rel="nofollow">Delete</a></td>-->
       </tr>

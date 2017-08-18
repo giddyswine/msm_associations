@@ -1,4 +1,5 @@
 class ShiptolocationsController < ApplicationController
+
   def index
     
     @q = Shiptolocation.ransack(params[:q])
@@ -9,7 +10,6 @@ class ShiptolocationsController < ApplicationController
 
   def show
     @shiptolocation = Shiptolocation.find(params[:id])
-
     render("shiptolocations/show.html.erb")
   end
 
@@ -25,6 +25,8 @@ class ShiptolocationsController < ApplicationController
     @shiptolocation.state = params[:state]
     @shiptolocation.county = params[:county]
     @shiptolocation.city = params[:city]
+    @shiptolocation.latitude = params[:latitude]
+    @shiptolocation.longitude = params[:longitude]
     @shiptolocation.shiptonumber = params[:shiptonumber]
     @shiptolocation.shiptoname = params[:shiptoname]
     @shiptolocation.nickname = params[:nickname]
@@ -72,10 +74,11 @@ class ShiptolocationsController < ApplicationController
 
   def update
     @shiptolocation = Shiptolocation.find(params[:id])
-
     @shiptolocation.state = params[:state]
     @shiptolocation.county = params[:county]
     @shiptolocation.city = params[:city]
+    @shiptolocation.latitude = params[:latitude]
+    @shiptolocation.longitude = params[:longitude]
     @shiptolocation.shiptonumber = params[:shiptonumber]
     @shiptolocation.shiptoname = params[:shiptoname]
     @shiptolocation.nickname = params[:nickname]

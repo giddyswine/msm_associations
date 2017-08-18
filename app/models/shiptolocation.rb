@@ -37,7 +37,18 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  parent       :integer
+#  latitude     :float
+#  longitude    :float
 #
 
 class Shiptolocation < ApplicationRecord
+    
+    def full_address
+    [shiptoname, city, county, State.find(state).state].compact.join(', ')
+    end
+
+    geocoded_by :full_address
+    after_validation :geocode
+
+
 end

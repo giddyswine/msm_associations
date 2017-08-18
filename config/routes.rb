@@ -5,6 +5,24 @@ Rails.application.routes.draw do
   devise_for :users
  
   root "blockchains#index"
+
+  # Routes for the Map resource:
+  # CREATE
+  get "/maps/new", :controller => "maps", :action => "new"
+  post "/create_map", :controller => "maps", :action => "create"
+
+  # READ
+  get "/maps", :controller => "maps", :action => "index"
+  get "/maps/:id", :controller => "maps", :action => "show"
+
+  # UPDATE
+  get "/maps/:id/edit", :controller => "maps", :action => "edit"
+  post "/update_map/:id", :controller => "maps", :action => "update"
+
+  # DELETE
+  get "/delete_map/:id", :controller => "maps", :action => "destroy"
+  #------------------------------
+  
   
   # Routes for the Shiptolocation resource:
   # CREATE
