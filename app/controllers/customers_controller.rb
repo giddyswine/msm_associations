@@ -66,15 +66,15 @@ class CustomersController < ApplicationController
     end
   end
 
-  def destroy
-    @customer = Customer.find(params[:id])
+  # def destroy
+  #   @customer = Customer.find(params[:id])
 
-    @customer.destroy
+  #   @customer.destroy
 
-    if URI(request.referer).path == "/customers/#{@customer.id}"
-      redirect_to("/", :notice => "Customer deleted.")
-    else
-      redirect_to(:back, :notice => "Customer deleted.")
-    end
-  end
+  #   if URI(request.referer).path == "/customers/#{@customer.id}"
+  #     redirect_to("/", :notice => "Customer deleted.")
+  #   else
+  #     redirect_to(:back, :notice => "Customer deleted.")
+  #   end
+  # end
 end

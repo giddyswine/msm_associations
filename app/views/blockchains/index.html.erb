@@ -28,7 +28,7 @@
         <th>Actions</th>
       </tr>
 
-      <% @blockchains.each do |blockchain| %>
+      <% @blockchains.order("created_at DESC").each do |blockchain| %>
       <tr>
         <td> <%= time_ago_in_words(blockchain.created_at) %> ago</td>   
         <td><a href="/salespeople/<%=blockchain.salesperson_id%>"><%= Salesperson.find(blockchain.salesperson_id).salesperson.split(" ")[0] %></a></td>
