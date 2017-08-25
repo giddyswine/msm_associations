@@ -16,11 +16,14 @@
 
       <% @salespeople.each do |salesperson| %>
       <tr>
-        <td><a href="/salespeople/<%= salesperson.id %>"><%= salesperson.salesperson %></a></a></td>
-        <td>count of recent bids (within last week)</td>
+        <td><a href="/salespeople/<%= salesperson.id %>"><%= salesperson.salesperson %></a></td>
+        <td> <%= Blockchain.where(salesperson_id: salesperson.id).count%></td>
         <td>
-          <a href="/salespeople/<%= salesperson.id %>/edit" class="btn-xs btn-warning">Edit</a>
-          <a href="/delete_salesperson/<%= salesperson.id %>" class="btn-xs btn-danger" rel="nofollow">Delete</a>
+          <% if salesperson.salesperson.split(" ")[0] == @userfirstname %>
+            <a href="/salespeople/<%= salesperson.id %>/edit" class="btn-xs btn-warning">Edit</a>
+            <a href="/delete_salesperson/<%= salesperson.id %>" class="btn-xs btn-danger" rel="nofollow">Delete</a>
+          <% end %>
+            
         </td>
       </tr>
       <% end %>

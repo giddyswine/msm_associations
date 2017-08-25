@@ -1,0 +1,63 @@
+<div class="page-header">
+  <h3><%= @customer.short_name %> (<%= @customer.promise_id %>)</h3>
+  <h6><%= @customer.name %></h6>
+    <div class="btn-group btn-group-justified">
+      <a href="/customers" class="btn-xs btn-primary">
+        Back
+      </a>
+      <a href="/customers/<%= @customer.id %>/edit" class="btn-xs btn-warning">
+        Edit
+      </a>
+      <a href="/delete_customer/<%= @customer.id %>" class="btn-xs btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+</div>
+
+<ul class="nav nav-tabs nav-justified"> 
+  <li role="presentation"><a href="/customers/<%= @customer.id %>">Info</a></li>
+  <li role="presentation" class="active"><a href="/customers/<%= @customer.id %>/recent"%> Recent Business</a></li> 
+  <li role="presentation"><a href="#">Notes & Contact</a></li> 
+</ul>  
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Salesperson</th>
+        <th>Entered</th>
+        <th>Product</th>
+        <th>State</th>
+        <th>City</th>
+        <th>Ship-to</th>
+        <th>Source</th>
+        <th>Price</th>
+        <!--<th>Metric</th>-->
+        <th>Tons</th>
+        <th>Mode</th>
+        <!--<th>Terms</th>-->
+        <th>Ship start</th>
+        <!--<th>Completed</th>-->
+      </tr>
+
+      <% Blockchain.where(customer_id: @customer.id).order("created_at DESC").limit(25).each do |blockchain| %>
+      <tr>
+        <td><a href="/salespeople/<%=blockchain.salesperson_id%>"><%= Salesperson.find(blockchain.salesperson_id).salesperson %></a></td>
+        <td><%=time_ago_in_words(blockchain.created_at) %> ago</td>
+        <td><a href""><%= Product.find(blockchain.product_id).name %></a></td>
+        <td><a href="/states/<%= blockchain.state %>"><%= blockchain.state %></a></td>
+        <td><%= blockchain.city.capitalize %></td>
+        <td><a href="/shiptolocations/<%=Shiptolocation.where(shiptonumber: blockchain.shiptonumber).first.id%>"><%= Shiptolocation.where(shiptonumber: blockchain.shiptonumber).first.shiptoname %></a></td>
+        <td><a href="/locations/<%=blockchain.source_id%>"><%= Location.find(blockchain.source_id).city%></a></td>
+        <td><%= blockchain.price %></td>
+        <!--<td><%= blockchain.metric %></td>-->
+        <td><%= blockchain.tons %></td>
+        <td><a href="/modes/<%= blockchain.mode %>"><%= Mode.find(blockchain.mode).mode %></a></td>
+        <!--<td><%= blockchain.terms %></td>-->
+        <td><%= blockchain.ship_start %></td>
+        <!--<td><%= blockchain.completed %></td>-->
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

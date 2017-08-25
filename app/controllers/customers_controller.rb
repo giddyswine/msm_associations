@@ -10,8 +10,16 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-
+    @id = Customer.find(params[:id]).promise_id
+    @locations = Shiptolocation.where(parent: @id).select(:shiptoname, :shiptonumber, :city, :state, :id)
+    @locations = @locations.uniq 
     render("customers/show.html.erb")
+  end
+
+  def show2
+    @customer = Customer.find(params[:id])
+
+    render("customers/show2.html.erb")
   end
 
   def new

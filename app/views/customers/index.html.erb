@@ -6,7 +6,7 @@
   <form class="navbar-form navbar-left" role="search">
     <%= search_form_for @q do |f| %>
       <div class="form-group">
-        <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
+        <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Customer Search" %>
       </div>
   
       <%= f.submit :class => "btn btn-primary btn-default" %>
@@ -26,6 +26,7 @@
         <th>Promise</th>
         <th>Name</th>
         <th>Short name</th>
+        <th>Recent Transactions</th>
         <th>Actions</th>
       </tr>
 
@@ -34,10 +35,11 @@
         <td><%= customer.promise_id %></td>
         <td><%= customer.name %></td>
         <td><%= customer.short_name %></td>
+        <td><%= Blockchain.where(customer_id: customer.id).count %></td>
         <td>
-          <a href="/customers/<%= customer.id %>" class="btn btn-sm btn-primary">Show</a>
-          <a href="/customers/<%= customer.id %>/edit" class="btn btn-sm btn-warning">Edit</a>
-          <a href="/delete_customer/<%= customer.id %>" class="btn btn-sm btn-danger" rel="nofollow">Delete</a>
+          <a href="/customers/<%= customer.id %>" class="btn-sm btn-primary">Show</a>
+          <a href="/customers/<%= customer.id %>/edit" class="btn-sm btn-warning">Edit</a>
+          <!--<a href="/delete_customer/<%= customer.id %>" class="btn-sm btn-danger" rel="nofollow">Delete</a>-->
         </td>
       </tr>
       <% end %>

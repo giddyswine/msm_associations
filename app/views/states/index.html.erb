@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
     States
-    <a href="/states/new" class="btn btn-lg btn-success">New State</a>
+    <a href="/states/new" class="btn-sm btn-success pull-right">New State</a>
   </h1>
 </div>
 
@@ -19,9 +19,9 @@
         <td><%= state.state %></td>
         <td><%= state.name %></td>
         <td>
-          <a href="/states/<%= state.id %>" class="btn btn-primary">Show</a>
-          <a href="/states/<%= state.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_state/<%= state.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/states/<%= state.id %>" class="btn-sm btn-primary">Show</a>
+          <a href="/states/<%= state.id %>/edit" class="btn-sm btn-warning">Edit</a>
+          <!--<a href="/delete_state/<%= state.id %>" class="btn-sm btn-danger" rel="nofollow">Delete</a>-->
         </td>
       </tr>
       <% end %>

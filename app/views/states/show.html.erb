@@ -1,16 +1,16 @@
 <div class="page-header">
-  <h3><%= @state.state %> Recent Activity</h3>
-    <div class="btn-group btn-group-justified">
-      <a href="/states" class="btn-xs btn-primary">
+  <h3><%= @state %> Recent Activity
+  
+      <a href="/states" class="btn-xs btn-primary pull-right">
         Back
       </a>
-      <a href="/states/<%= @state.id %>/edit" class="btn-xs btn-warning">
+      <a href="/states/<%= State.where(state: @state).first.id %>/edit" class="btn-xs btn-warning pull-right">
         Edit
       </a>
-      <a href="/delete_state/<%= @state.id %>" class="btn-xs btn-danger" rel="nofollow">
-        Delete
-      </a>
-    </div>
+      <!--<a href="/delete_state/<%= State.where(state: @state).first.id  %>" class="btn-xs btn-danger pull-right" rel="nofollow">-->
+      <!--  Delete-->
+      <!--</a>-->
+  </h3>
 </div>
 
 <div class="row">
@@ -30,10 +30,10 @@
         <th>Terms</th>
         <th>Ship start</th>
         <th>Completed</th>
-        <th>Actions</th>
+        <!--<th>Actions</th>-->
       </tr>
 
-      <% Blockchain.where(state: @state.id).order("created_at DESC").limit(25).each do |blockchain| %>
+      <% Blockchain.where(state: @state).order("created_at DESC").limit(25).each do |blockchain| %> 
       <tr>
         <td><a href="/salespeople/<%=blockchain.salesperson_id%>"><%= Salesperson.find(blockchain.salesperson_id).salesperson %></a></td>
         <td><%= Product.find(blockchain.product_id).name %></td>
@@ -48,11 +48,11 @@
         <td><%= blockchain.terms %></td>
         <td><%= blockchain.ship_start %></td>
         <td><%= blockchain.completed %></td>
-        <td>
-          <a href="/blockchains/<%= blockchain.id %>" class="btn-xs btn-primary">Show</a>
-          <a href="/blockchains/<%= blockchain.id %>/edit" class="btn-xs btn-warning">Edit</a>
-          <a href="/delete_blockchain/<%= blockchain.id %>" class="btn-xs btn-danger" rel="nofollow">Delete</a>
-        </td>
+        <!--<td>-->
+        <!--  <a href="/blockchains/<%= blockchain.id %>" class="btn-xs btn-primary">Show</a>-->
+        <!--  <a href="/blockchains/<%= blockchain.id %>/edit" class="btn-xs btn-warning">Edit</a>-->
+        <!--  <a href="/delete_blockchain/<%= blockchain.id %>" class="btn-xs btn-danger" rel="nofollow">Delete</a>-->
+        <!--</td>-->
       </tr>
       <% end %>
     </table>

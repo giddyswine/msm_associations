@@ -54,6 +54,33 @@
         <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @blockchain.city %>">
       </div>
 
+      <!-- Label and input for Latitude -->
+      <div class="form-group">
+        <label for="latitude" class="control-label">
+          Latitude
+        </label>
+
+        <input type="float" id="latitude" name="latitude" placeholder="Latitude" class="form-control" value="<%= @blockchain.latitude %>">
+      </div>
+
+      <!-- Label and input for long -->
+      <div class="form-group">
+        <label for="longitude" class="control-label">
+          Longitude
+        </label>
+
+        <input type="float" id="longitude" name="longitude" placeholder="Longitude" class="form-control" value="<%= @blockchain.longitude %>">
+      </div>
+
+      <!-- Label and input for shiptonumber -->
+      <div class="form-group">
+        <label for="shiptonumber" class="control-label">
+          Ship-to Number
+        </label>
+
+        <input type="integer" id="shiptonumber" name="shiptonumber" placeholder="Ship-to Number" class="form-control" value="<%= @blockchain.shiptonumber %>">
+      </div>
+
       <!-- Label and input for customer_id -->
       <div class="form-group">
         <label for="customer_id" class="control-label">

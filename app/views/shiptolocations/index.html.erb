@@ -1,14 +1,22 @@
 <div class="page-header">
   <h2>
-    Shiptolocations
-    <a href="/shiptolocations/new" class="btn pull-right btn-success">New Shiptolocation</a>
+    Ship-to Locations
+    <a href="/shiptolocations/new" class="btn pull-right btn-success">New Ship-to Location</a>
   </h2>
 
   <form class="navbar-form navbar-left" role="search">
     <%= search_form_for @q do |f| %>
       <div class="form-group">
-        <%= f.text_field :shiptoname_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
+        <%= f.text_field :shiptoname_cont, :class => "form-control", :placeholder => "Search by Name" %>
       </div>
+      
+      <div class="form-group">
+        <%= f.text_field :city_cont, :class => "form-control", :placeholder => "Search by City" %>
+      </div>
+      
+      <!--<div class="form-group">-->
+      <!--  <%= f.text_field :parent_cont, :class => "form-control", :placeholder => "Search by Customer Number" %>-->
+      <!--</div>-->
   
       <%= f.submit :class => "btn btn-primary btn-default" %>
       
@@ -28,35 +36,10 @@
         <th>State</th>
         <th>County</th>
         <th>City</th>
-        <th>Shiptonumber</th>
-        <th>Shiptoname</th>
-        <th>Parent</th>
-        <th>Nh3</th>
-        <th>Uan</th>
-        <th>Urea</th>
-        <th>An</th>
-        <th>Truck</th>
-        <th>Rail</th>
-        <th>Unittrain</th>
-        <th>Railline</th>
-        <th>Barge</th>
-        <th>Nh3storage</th>
-        <th>Uanstorage</th>
-        <th>Ureastorage</th>
-        <th>Anstorage</th>
-        <th>Nh32015</th>
-        <th>Nh32016</th>
-        <th>Nh32017</th>
-        <th>Uan2015</th>
-        <th>Uan2016</th>
-        <th>Uan2017</th>
-        <th>Urea2015</th>
-        <th>Urea2016</th>
-        <th>Urea2017</th>
-        <th>An2015</th>
-        <th>An2016</th>
-        <th>An2017</th>
-        <th>Edit</th>
+        <th>Promise #</th>
+        <th>Name</th>
+        <th>Parent</th> 
+        <!--<th>Edit</th>-->
         <!--<th>Delete</th>-->
       </tr>
 
@@ -64,9 +47,9 @@
 
       <tr>
         <td><a href="/shiptolocations/<%= shiptolocation.id %>" class="btn-sm btn-primary">Open</a></td>
-        <td><a href="/states/<%= shiptolocation.state %>"><%= State.find(shiptolocation.state).state %></a></td>
-        <td><span class="text-nowrap"><%= shiptolocation.county %></span></td>
-        <td><span class="text-nowrap"><%= shiptolocation.city %></span></td>
+        <td><a href="/states/<%= shiptolocation.state %>"><%= shiptolocation.state %></a></td>
+        <td><span class="text-nowrap"><%= shiptolocation.county.capitalize %></span></td>
+        <td><span class="text-nowrap"><%= shiptolocation.city.capitalize %></span></td>
         <td><%= shiptolocation.shiptonumber %></td>
         <td><span class="text-nowrap"><%= shiptolocation.shiptoname %></span></td>
 
@@ -75,34 +58,7 @@
         <% else %>
           <td>unlinked</td>
         <% end %>
-
-
-        <td><%= shiptolocation.nh3 %></td>
-        <td><%= shiptolocation.uan %></td>
-        <td><%= shiptolocation.urea %></td>
-        <td><%= shiptolocation.an %></td>
-        <td><%= shiptolocation.truck %></td>
-        <td><%= shiptolocation.rail %></td>
-        <td><%= shiptolocation.unittrain %></td>
-        <td><%= shiptolocation.railline %></td>
-        <td><%= shiptolocation.barge %></td>
-        <td><%= shiptolocation.nh3storage %></td>
-        <td><%= shiptolocation.uanstorage %></td>
-        <td><%= shiptolocation.ureastorage %></td>
-        <td><%= shiptolocation.anstorage %></td>
-        <td><%= shiptolocation.nh32015 %></td>
-        <td><%= shiptolocation.nh32016 %></td>
-        <td><%= shiptolocation.nh32017 %></td>
-        <td><%= shiptolocation.uan2015 %></td>
-        <td><%= shiptolocation.uan2016 %></td>
-        <td><%= shiptolocation.uan2017 %></td>
-        <td><%= shiptolocation.urea2015 %></td>
-        <td><%= shiptolocation.urea2016 %></td>
-        <td><%= shiptolocation.urea2017 %></td>
-        <td><%= shiptolocation.an2015 %></td>
-        <td><%= shiptolocation.an2016 %></td>
-        <td><%= shiptolocation.an2017 %></td>
-        <td><a href="/shiptolocations/<%= shiptolocation.id %>/edit" class="btn-sm btn-warning">Edit</a></td>
+        <!--<td><a href="/shiptolocations/<%= shiptolocation.id %>/edit" class="btn-sm btn-warning">Edit</a></td>-->
         <!--<td><a href="/delete_shiptolocation/<%= shiptolocation.id %>" class="btn-sm btn-danger" rel="nofollow">Delete</a></td>-->
       </tr>
       <% end %>

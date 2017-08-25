@@ -12,7 +12,7 @@
       <dd><%= Product.find(@blockchain.product_id).name %></dd>
 
       <dt>State</dt>
-      <dd><a href="/states/<%= @blockchain.state %>"><%= State.find(@blockchain.state).state %></a></dd>
+      <dd><a href="/states/<%= @blockchain.state %>"><%= @blockchain.state %></a></dd> 
 
       <dt>City</dt>
       <dd><%= @blockchain.city %></dd>

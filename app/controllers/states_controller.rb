@@ -6,7 +6,7 @@ class StatesController < ApplicationController
   end
 
   def show
-    @state = State.find(params[:id])
+    @state = State.find(params[:id]).state
 
     render("states/show.html.erb")
   end

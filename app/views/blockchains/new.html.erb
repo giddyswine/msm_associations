@@ -34,56 +34,40 @@
       <!-- Label and input for salesperson_id -->
 
       <div class="form-group">
-        <label for="salesperson_id" class="control-label">
-          Salesperson
+        <label for="salesperson_id" class="control-label hidden">
+          Salesperson:
         </label>
         <div>
-          <select id="salesperson_id" name="salesperson_id" class="control-label" >
-            <% @salespeople.each do |salesperson| %>
-            <option id="salesperson_id" value="<%= salesperson.id %>"><%= salesperson.salesperson %></option>
-            <%end%>
+          <select id="salesperson_id" name="salesperson_id" class="control-label hidden" >
+            <option id="salesperson_id" value="<%= current_user.id-4 %>"><%= current_user.username %></option>
           </select>
         </div>
       </div>
       
-
-      <!-- Label and input for product_id -->
+        <!-- Label and input for product_id -->
       <div class="form-group">
         <label for="product_id" class="control-label">
           Product
         </label>
         <ul>
-          <% @product.each do |product| %>
-            <div class="col-md-<%=12/@product.count%>">
-              <input type="radio" id="product_id" name="product_id" value="<%= product.id %>">
-              <label for="product_id"> <%=product.name%> </label>
-            </div>
-          <%end%>
+          <input type="radio" checked id="product_id" name="product_id" value="1">
+          <label for="product_id">NH3</label>
+          <input type="radio" id="product_id" name="product_id" value="2">
+          <label for="product_id">Urea</label>
+          <input type="radio" id="product_id" name="product_id" value="3">
+          <label for="product_id">UAN</label>
+          <input type="radio" id="product_id" name="product_id" value="4">
+          <label for="product_id">An</label>
         </ul>
       </div>
 
-      <!-- Label and input for state -->
-
-      <div class="form-group">
-        <label for="state" class="control-label">
-          State (rank options based on user & product)
-        </label>
-        <div>
-          <select id="state" name="state" class="control-label" >
-            <% @state.each do |state| %>
-            <option id="state" value="<%= state.id %>"><%= state.state %></option>
-            <%end%>
-          </select>
-        </div>
-      </div>
-
-      <!-- Label and input for city -->
+      <!-- Label and input for Ship to Location -->
       <div class="form-group">
         <label for="city" class="control-label">
-          City
+          Ship to Number
         </label>
 
-        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @blockchain.city %>">
+        <input type="text" id="shiptonumber" name="shiptonumber" placeholder="Ship-to Number" class="form-control" value="<%= @blockchain.shiptonumber %>">
       </div>
 
       <!-- Label and input for customer_id -->
@@ -163,12 +147,20 @@
           Mode
         </label>
         <ul>
-          <% @mode.each do |mode| %>
-            <div class="col-md-2">
-              <input type="radio" id="mode" name="mode" value="<%= mode.id %>">
-              <label for="mode"> <%=mode.mode%> </label>
-              </div>
-          <%end%>
+          <input type="radio" checked id="mode" name="mode" value="1">
+          <label for="mode">Rail</label>
+          <input type="radio" id="mode" name="mode" value="2">
+          <label for="mode">Truck</label>
+          <input type="radio" id="mode" name="mode" value="3">
+          <label for="mode">Barge</label>
+          <input type="radio" id="mode" name="mode" value="4">
+          <label for="mode">Bulk</label>
+          <input type="radio" id="mode" name="mode" value="5">
+          <label for="mode">Unit Train</label>
+          <input type="radio" id="mode" name="mode" value="6">
+          <label for="mode">Vessel</label>
+          <input type="radio" id="mode" name="mode" value="7">
+          <label for="mode">Pipeline</label>
         </ul>
       </div>
 
@@ -194,7 +186,7 @@
           Ship start
         </label>
 
-        <input type="text" id="ship_start" name="ship_start" placeholder="Ship start" class="form-control" value="<%= @blockchain.ship_start %>">
+        <input type="text" id="ship_start" name="ship_start" placeholder="Ship start" class="form-control" value="Aug-17"> 
       </div>
       </div>
       <!-- Label and input for completed -->

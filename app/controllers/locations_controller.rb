@@ -7,14 +7,14 @@ class LocationsController < ApplicationController
 
   def show
     @url_base= "https://maps.googleapis.com/maps/api/geocode/json?address="
-    @url_input=@street_address.gsub(" ","+")
-    @url= "#{@url_base}#{@url_input}"
-    @raw_data=open(@url).read
-    @jsoned=JSON[@raw_data]
-    @results=@jsoned["results"]
-    @first=@results[0]
-    @geometry=@first["geometry"]
-    @googlelocation = @geometry["location"]
+    # # @url_input=@street_address.gsub(" ","+")
+    # @url= "#{@url_base}#{@url_input}"
+    # @raw_data=open(@url).read
+    # @jsoned=JSON[@raw_data]
+    # @results=@jsoned["results"]
+    # @first=@results[0]
+    # @geometry=@first["geometry"]
+    # @googlelocation = @geometry["location"]
 
     @location = Location.find(params[:id])
 

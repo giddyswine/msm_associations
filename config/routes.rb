@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   # READ
   get "/shiptolocations", :controller => "shiptolocations", :action => "index"
   get "/shiptolocations/:id", :controller => "shiptolocations", :action => "show"
+  get "/shiptolocations/:id/recent", :controller => "shiptolocations", :action => "show2"
 
   # UPDATE
   get "/shiptolocations/:id/edit", :controller => "shiptolocations", :action => "edit"
@@ -117,6 +118,7 @@ Rails.application.routes.draw do
   # READ
   get "/customers", :controller => "customers", :action => "index"
   get "/customers/:id", :controller => "customers", :action => "show"
+  get "/customers/:id/recent", :controller => "customers", :action => "show2"
 
   # UPDATE
   get "/customers/:id/edit", :controller => "customers", :action => "edit"
@@ -134,6 +136,7 @@ Rails.application.routes.draw do
   # READ
   get "/salespeople", :controller => "salespeople", :action => "index"
   get "/salespeople/:id", :controller => "salespeople", :action => "show"
+  get "/salespeople/:id/recent", :controller => "salespeople", :action => "show2"
 
   # UPDATE
   get "/salespeople/:id/edit", :controller => "salespeople", :action => "edit"

@@ -1,0 +1,92 @@
+<div class="page-header">
+  <h3>Ship-to Location: <%= @shiptolocation.shiptoname %> (<%= @shiptolocation.shiptonumber %>)
+    <div class="btn-group pull-right">
+      <a href="/shiptolocations" class="btn-sm btn-primary">Back</a>
+      <a href="/shiptolocations/<%= @shiptolocation.id %>/edit" class="btn-sm btn-warning">Edit</a>
+      <a href="/delete_shiptolocation/<%= @shiptolocation.id %>" class="btn-sm btn-danger">Delete</a>
+    </div>
+  </h3>
+   
+  <% if @shiptolocation.parent == 0 %>
+    <h4><a href="/shiptolocations/<%= @shiptolocation.id %>/edit">Add an Owner</a></h4>
+  <% else %>
+    <h4>Owned by <a href="/customers/<%= Customer.where(promise_id: @shiptolocation.parent).first.id %>"><%= Customer.where(promise_id: @shiptolocation.parent).first.name %></a> (<%= @shiptolocation.parent %>)</h4>
+  <% end %>
+  
+      <h4>
+        <% if @shiptolocation.truck == "yes" %>
+          Truck
+        <% end %>    
+    
+        <% if @shiptolocation.unittrain == "yes" %>
+          , Unit Trains (<%@shiptolocation.railline%>)
+        <% else if @shiptolocation.rail == "yes" %>
+          , Single Cars (<%=@shiptolocation.railline%>)
+        <% end %>     
+        <% end %>     
+    
+        <% if @shiptolocation.barge == "yes" %>
+          , Barge 
+        <% end %>    
+      </h4>
+</div>
+
+<h3>Location: <%= @shiptolocation.city.capitalize %>, <%= @shiptolocation.county.capitalize %> County, <%= @shiptolocation.state %> </h3> 
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 75%;
+       }
+    </style>
+  </head>
+
+<ul class="nav nav-tabs nav-justified">
+  <li role="presentation"><a href="/shiptolocations/<%= @shiptolocation.id %>">Info</a></li>
+  <li role="presentation" class="active"><a href="#">Recent Quotes</a></li>
+  <li role="presentation"><a href="#">Notes & Contact</a></li> 
+</ul>
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Salesperson</th>
+        <th>Product</th>
+        <th>Customer</th>
+        <th>Source</th>
+        <th>Price</th>
+        <th>Metric</th>
+        <th>Tons</th>
+        <th>Mode</th>
+        <th>Terms</th>
+        <th>Ship start</th>
+        <th>Completed</th>
+        <th>Actions</th>
+      </tr>
+
+      <% Blockchain.where(shiptonumber: @shiptolocation.shiptonumber).order("created_at DESC").limit(25).each do |blockchain| %>
+      <tr>
+        <td><a href="/salespeople/<%=blockchain.salesperson_id%>"><%= Salesperson.find(blockchain.salesperson_id).salesperson %></a></td>
+        <td><%= Product.find(blockchain.product_id).name %></td>
+        <td><a href="/customers/<%=blockchain.customer_id%>"><%= Customer.find(blockchain.customer_id).short_name %></a></td>
+        <td><a href="/locations/<%=blockchain.source_id%>"><%= Location.find(blockchain.source_id).city%></a></td>
+        <td><%= blockchain.price %></td>
+        <td><%= blockchain.metric %></td>
+        <td><%= blockchain.tons %></td>
+        <td><a href="/modes/<%= blockchain.mode %>"><%= Mode.find(blockchain.mode).mode %></a></td>
+        <td><%= blockchain.terms %></td>
+        <td><%= blockchain.ship_start %></td>
+        <td><%= blockchain.completed %></td>
+        <td>
+          <a href="/blockchains/<%= blockchain.id %>" class="btn-xs btn-primary">Show</a>
+          <a href="/blockchains/<%= blockchain.id %>/edit" class="btn-xs btn-warning">Edit</a>
+          <a href="/delete_blockchain/<%= blockchain.id %>" class="btn-xs btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

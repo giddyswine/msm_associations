@@ -1,7 +1,7 @@
 class SalespeopleController < ApplicationController
   def index
     @salespeople = Salesperson.all
-
+    @userfirstname = current_user.username
     render("salespeople/index.html.erb")
   end
 
@@ -9,6 +9,12 @@ class SalespeopleController < ApplicationController
     @salesperson = Salesperson.find(params[:id])
 
     render("salespeople/show.html.erb")
+  end
+  
+  def show2
+    @salesperson = Salesperson.find(params[:id])
+
+    render("salespeople/show2.html.erb")
   end
 
   def new

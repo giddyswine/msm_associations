@@ -3,7 +3,7 @@
 # Table name: shiptolocations
 #
 #  id           :integer          not null, primary key
-#  state        :integer
+#  state        :string
 #  county       :string
 #  city         :string
 #  shiptonumber :integer
@@ -44,11 +44,11 @@
 class Shiptolocation < ApplicationRecord
     
     def full_address
-    [shiptoname, city, county, State.find(state).state].compact.join(', ')
+        [shiptoname, city, county, state].compact.join(', ') 
     end
 
     geocoded_by :full_address
-    after_validation :geocode
+    after_validation :geocode 
 
 
 end

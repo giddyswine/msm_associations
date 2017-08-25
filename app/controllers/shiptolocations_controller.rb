@@ -13,6 +13,11 @@ class ShiptolocationsController < ApplicationController
     render("shiptolocations/show.html.erb")
   end
 
+  def show2
+    @shiptolocation = Shiptolocation.find(params[:id])
+    render("shiptolocations/show2.html.erb")
+  end
+
   def new
     @shiptolocation = Shiptolocation.new
 

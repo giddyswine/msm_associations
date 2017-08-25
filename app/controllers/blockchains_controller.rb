@@ -2,7 +2,7 @@ class BlockchainsController < ApplicationController
   def index
 
     @blockchains = Blockchain.page(params[:page]).per(30)
-    
+    @userfirstname = current_user.username
 
     render("blockchains/index.html.erb")
   end
@@ -27,12 +27,15 @@ class BlockchainsController < ApplicationController
   end
 
   def create
+    @userfirstname = current_user.username
     @blockchain = Blockchain.new
-
     @blockchain.salesperson_id = params[:salesperson_id]
     @blockchain.product_id = params[:product_id]
-    @blockchain.state = params[:state]
-    @blockchain.city = params[:city]
+    @blockchain.state = Shiptolocation.where(shiptonumber: params[:shiptonumber]).first.state
+    @blockchain.city = params[:city] 
+    @blockchain.latitude = params[:latitude]
+    @blockchain.longitude = params[:longitude]
+    @blockchain.shiptonumber = params[:shiptonumber]
     @blockchain.customer_id = params[:customer_id]
     @blockchain.company_id = params[:company_id]
     @blockchain.source_id = params[:source_id]
@@ -66,6 +69,9 @@ class BlockchainsController < ApplicationController
     @blockchain.product_id = params[:product_id]
     @blockchain.state = params[:state]
     @blockchain.city = params[:city]
+    @blockchain.latitude = params[:latitude]
+    @blockchain.longitude = params[:longitude]
+    @blockchain.shiptonumber = params[:shiptonumber]
     @blockchain.customer_id = params[:customer_id]
     @blockchain.company_id = params[:company_id]
     @blockchain.source_id = params[:source_id]
