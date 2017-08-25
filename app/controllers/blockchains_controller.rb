@@ -32,7 +32,7 @@ class BlockchainsController < ApplicationController
     @blockchain.salesperson_id = params[:salesperson_id]
     @blockchain.product_id = params[:product_id]
     @blockchain.state = Shiptolocation.where(shiptonumber: params[:shiptonumber]).first.state
-    @blockchain.city = params[:city] 
+    @blockchain.city = Shiptolocation.where(shiptonumber: params[:shiptonumber]).first.city
     @blockchain.latitude = params[:latitude]
     @blockchain.longitude = params[:longitude]
     @blockchain.shiptonumber = params[:shiptonumber]
