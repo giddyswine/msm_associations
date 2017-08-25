@@ -57,15 +57,15 @@ class SalespeopleController < ApplicationController
     end
   end
 
-  def destroy
-    @salesperson = Salesperson.find(params[:id])
+  # def destroy
+  #   @salesperson = Salesperson.find(params[:id])
 
-    @salesperson.destroy
+  #   @salesperson.destroy
 
-    if URI(request.referer).path == "/salespeople/#{@salesperson.id}"
-      redirect_to("/", :notice => "Salesperson deleted.")
-    else
-      redirect_to(:back, :notice => "Salesperson deleted.")
-    end
-  end
+  #   if URI(request.referer).path == "/salespeople/#{@salesperson.id}"
+  #     redirect_to("/", :notice => "Salesperson deleted.")
+  #   else
+  #     redirect_to(:back, :notice => "Salesperson deleted.")
+  #   end
+  # end
 end
